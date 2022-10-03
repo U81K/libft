@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 21:56:55 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/01 15:50:31 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:22:06 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,36 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
+	i = 0;
 	if (to_find[0] == '\0')
 		return ((char *)str);
 	if (len == 0)
 		return (0);
-	i = 0;
-	while (str[i] && i < len - 1)
+	while (str[i] && i < len)
 	{
 		j = 0;
-		while (str[i + j] == to_find[j])
+		while (str[i + j] == to_find[j] && i + j < len)
 		{
 			if (to_find[j + 1] == '\0')
 				return ((char *)str + i);
 			else
+			{
 				j++;
+			}
 		}
 		i++;
 	}
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	char str[] = {"aaabcabcd"};
+// 	char to_find[] = {"aabc"};
+
+// 	printf("%s\n", strnstr("22", "b", 2));
+// 	printf("%s\n", ft_strnstr("22", "b", 2));
+// }
