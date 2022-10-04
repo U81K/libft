@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 15:23:14 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/09/30 11:15:09 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/09/29 14:52:14 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/04 19:15:22 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int c)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (&str[i]);
-		i++;
-	}
-	return (NULL);
+int	ft_isprint(int c)
+{
+	if (c > 31 && c < 127)
+		return (1);
+	return (0);
 }

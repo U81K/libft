@@ -6,32 +6,23 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:37:30 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/09/30 11:26:36 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/04 19:48:13 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int	len;
 
 	len = ft_strlen(str) - 1;
+	if (c == '\0')
+		return (((char *)str) + len + 1);
 	while (str[len])
 	{
 		if (str[len] == c)
-			return (&str[len]);
+			return (((char *)str) + len);
 		len--;
 	}
 	return (NULL);

@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 17:27:03 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/03 17:43:25 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/01 15:51:15 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/04 16:14:50 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	res;
+	int	i;
+	int	sign;
 
+	res = 0;
 	i = 0;
-	while (i < n)
+	sign = 1;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
+		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f')
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		((char *)s)[i] = '\0';
+		if (str[i] == '-')
+			sign = sign * -1;
 		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10;
+		res = res + str[i] - 48;
+		i++;
+	}
+	return (sign * res);
 }
-
-// int main(void)
-// {
-//     char str[] = {"hello"};
-
-//     bzero(str, 2);
-//     // bzero(str, 2);
-//     puts(str + 3);
-// }

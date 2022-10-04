@@ -6,12 +6,11 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 21:56:55 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/03 16:22:06 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:13:47 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {

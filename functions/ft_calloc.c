@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 15:09:41 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/09/29 18:13:02 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/04 17:45:07 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/04 19:05:45 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char c)
+#include "libft.h"
+
+void *ft_calloc(size_t nelem, size_t elsize)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	size_t	i;
+	void	*p;
+
+	i = 0;
+	p = malloc(nelem * elsize);
+	if (!p)
+		return (p);
+		while (i < (nelem * elsize))
+		{
+			((char *)p)[i] = 0;
+			i++;
+		}
+	return ((void *)p);	
 }
