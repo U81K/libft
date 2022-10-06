@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:21:50 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 23:02:31 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/06 15:53:03 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/06 17:13:18 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
-	unsigned char *bs1;
-	unsigned char *bs2;
+	char	*res;
+	size_t	len_s1;
+	size_t	len_s2;
+	size_t	i;
+	size_t	j;
 
-	bs1 = (unsigned char *)s1;
-	bs2 = (unsigned char *)s2;
+	len_s1 = ft_strlen((char *)s1);
+	len_s2 = ft_strlen((char *)s2);
+	
+	if (!(res = (char *)malloc(sizeof(char) * (len_s2 + len_s1 + 1))))
+		return (0);
 	i = 0;
-	while (i < n && (!bs1[i] || !bs2[i]))
+	while (i != len_s1)
 	{
-		if (bs1[i] != bs2[i])
-			return (bs1[i] - bs2[i]);
-		i++;
+		res[i] = (char)s1[i];
+		i++;;
 	}
-	return (0);
+	j = 0;
+	while (i != (len_s1 + len_s2))
+	{
+		res[i] = (char)s2[j];
+		i++;
+		j++;
+	}
+	res[(len_s1 + len_s2)] = '\0';
+	return (res);
 }
