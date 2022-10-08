@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:04:18 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/06 22:23:46 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/08 22:51:21 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,109 +15,71 @@
 #include <stdlib.h>
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+int	str_checker(const char *set, const char str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	while (set[i])
+	{
+		if (set[i] == str)
+			return (1);
 		i++;
-	return (i);
+	}
+	return (0);
 }
 
-int	is_str_found(char *str, char *set)
+int index_ss(char const *str, char const *set)
 {
-	size_t	str_len;
-	size_t	set_len;
-	size_t	i;
-	size_t	is_set_found_s;
-	size_t	is_set_found_f;
-	
-	
-	str_len = ft_strlen(str);
-	set_len = ft_strlen(set);
-	
-	i = 0;
-	while (i < set_len)
-	{
-		if (str[i] == set[i])
-			i++;
-		else
-			break;
-	}
-	if (set_len == i)
-		is_set_found_s = 1;
-	i = 0;
-	while (set_len > 0)
-	{
-		if (str[str_len] == set[set_len])
-		{
-			str_len--;
-			set_len--;
-		}
-		else
-			break;
-	}
-	if (set_len == 0)
-		is_set_found_f = 1;
+	int index_s;
+
+	index_s = 0;
+	while (str_checker(set, str[index_s]))
+		index_s++;
+	return (index_s);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+int index_ff(char const *str, char const *set)
 {
+	int index_f;
+
+	index_f = strlen(str) - 1;
+	while (str_checker(set, str[index_f]))
+		index_f--;
+	return (index_f);
+}
+
+char	*ft_strtrim(char const *str, char const *set)
+{
+	int	index_s;
+	int	index_f;
+	int	set_len;
+	int	i;
 	char	*res;
-	size_t	s1_len;
-	size_t	set_len;
-	size_t	set_len1;
-	size_t	i;
-	size_t	is_set_found_s;
-	size_t	is_set_found_f;
-	
-	
-	s1_len = ft_strlen(s1);
-	set_len = ft_strlen(set);
-	set_len1 = ft_strlen(set);
+
+	if (!str)
+		return(0);
+	index_s = index_ss(str, set);
 	i = 0;
-	while (i < set_len)
-	{
-		if (s1[i] == set[i])
-			i++;
-		else
-			break;
-	}
-	if (set_len == i)
-		is_set_found_s = 1;
-	i = 0;
-	while (set_len > 0)
-	{
-		if (s1[s1_len] == set[set_len])
-		{
-			s1_len--;
-			set_len--;
-		}
-		else
-			break;
-	}
-	if (set_len == 0)
-		is_set_found_f = 1;
-	if (is_set_found_s == 1 && is_set_found_f == 1)
-		if (!(res = (char *)malloc(sizeof(char) * (s1_len - (set_len * 2) + 1))))
-			return (0);
-	i = 0;
-	set_len = ft_strlen(set);
-	while (i < (s1_len - set_len1))
-	{
-		res[i] = s1[set_len];
-		i++;
-		set_len++;
-	}
-	res[i] = '\0';
-	return (res);
+	index_f = index_ff(str,set);
+	set_len = strlen(set) - 1;
+	if (index_s == (int)strlen(str) && index_f == -1)
+		return ("");
+	if (!(res = (char *)malloc(sizeof(char) * (index_f - index_s + 2))))
+        return (NULL);
+    i = 0;
+    while(index_s <= index_f)
+        res[i++] = str[index_s++];
+    res[i] = '\0';
+    return(res);
 }
 
-int	main(void)
-{
-	char str[] = {"oohellooo"};
-	char set[] = {"oo"};
+// int    main(void)
+// {
+//     char str[] = {"   \toohellsoo\t "};
+//     char set[] = {" \t"};
 
-	puts(ft_strtrim("0012345678900", "00"));
-}
+// 	// ft_strtrim(str, set);
+//     puts(ft_strtrim(str, set));
+//     // puts(strdup(""));
+// }
