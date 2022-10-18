@@ -6,13 +6,10 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:04:18 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/09 14:26:39 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:53:42 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 int	str_checker(const char *set, const char str)
@@ -43,7 +40,7 @@ int	index_ff(char const *str, char const *set)
 {
 	int	index_f;
 
-	index_f = strlen(str) - 1;
+	index_f = ft_strlen(str) - 1;
 	while (str_checker(set, str[index_f]))
 		index_f--;
 	return (index_f);
@@ -62,9 +59,9 @@ char	*ft_strtrim(char const *str, char const *set)
 	index_s = index_ss(str, set);
 	i = 0;
 	index_f = index_ff(str, set);
-	set_len = strlen(set) - 1;
-	if (index_s == (int)strlen(str) && index_f == -1)
-		return ("");
+	set_len = ft_strlen(set) - 1;
+	if (index_s == (int)ft_strlen(str) && index_f == -1)
+		return (ft_strdup(""));
 	res = (char *)malloc(sizeof(char) * (index_f - index_s + 2));
 	if (!res)
 		return (NULL);
@@ -77,10 +74,12 @@ char	*ft_strtrim(char const *str, char const *set)
 
 // int    main(void)
 // {
-//     char str[] = {"   \toohellsoo\t "};
-//     char set[] = {" \t"};
+//     // char str[] = {"   xxx   xxx", " x"};
+//     // char set[] = {" \t"};
 
 // 	// ft_strtrim(str, set);
-//     puts(ft_strtrim(str, set));
+//     // puts(ft_strtrim(str, set));
+//     puts(ft_strtrim("   xxx   xxx", " x"));
+//     // puts(strtrim("   xxx   xxx", " x"));
 //     // puts(strdup(""));
 // }

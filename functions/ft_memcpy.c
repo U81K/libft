@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:46:11 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 14:37:35 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:31:22 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // int	main(void)
 // {
 // 	char str[] ={"abcdef"};
-	
 // 	memcpy(str, str + 2, 3);
 // 	// ft_memcpy(str, str + 2, 3);
 // 	puts(str);

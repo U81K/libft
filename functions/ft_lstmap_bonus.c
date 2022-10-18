@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 15:23:14 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 18:37:04 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/13 16:07:19 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/17 15:30:05 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_list	*list;
+	t_list	*node;
 
-	i = 0;
-	while ((char)str[i] != (char)c)
+	list = NULL;
+	while (lst)
 	{
-		if ((char)str[i] == '\0')
-			return (0);
-		i++;
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&list, node);
+		lst = lst->next;
 	}
-	return ((char *)&str[i]);
+	return (list);
 }

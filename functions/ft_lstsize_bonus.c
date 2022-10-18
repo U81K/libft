@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 15:53:03 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 18:15:14 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/12 12:30:17 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/17 12:30:27 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_lstsize(t_list *lst)
 {
-	char	*res;
-	size_t	len_s1;
-	size_t	len_s2;
-	size_t	i;
-	size_t	j;
+	t_list	*curr;
+	int		i;
 
-	len_s1 = ft_strlen((char *)s1);
-	len_s2 = ft_strlen((char *)s2);
-	res = (char *)malloc(sizeof(char) * (len_s2 + len_s1 + 1));
-	if (!res)
-		return (0);
+	curr = lst;
 	i = 0;
-	while (i != len_s1)
+	while (curr != NULL)
 	{
-		res[i] = (char)s1[i];
+		curr = curr->next;
 		i++;
 	}
-	j = 0;
-	while (i != (len_s1 + len_s2))
-		res[i++] = (char)s2[j++];
-	res[(len_s1 + len_s2)] = '\0';
-	return (res);
+	return (i);
 }

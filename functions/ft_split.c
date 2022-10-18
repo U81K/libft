@@ -6,30 +6,29 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:52:00 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/09 20:08:58 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:35:57 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-int	word_count(char *str, char c)
+int	word_count(char *s, char c)
 {
 	int	i;
 	int	count;
 
 	i = 0;
 	count = 0;
-	while (str[i] == c)
-			i++;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	return (count + 1);
+	return (count);
 }
 
 char	*str_count(char *str, char c)
@@ -66,7 +65,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	res = malloc(sizeof(char *) * (word_count((char *)s, c)));
+	res = malloc(sizeof(char *) * (word_count((char *)s, c) + 1));
 	if (!res)
 		return (0);
 	i = 0;
@@ -76,24 +75,30 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
-			res[j++] = str_count((char *)&s[i], c);
+		{
+			res[j] = str_count(&((char *)s)[i], c);
+			j++;
+		}
 		while (s[i] && s[i] != c)
 			i++;
 	}
+	res[j] = 0;
 	return (res);
 }
 
+// #include <stdio.h>
 // int main(void)
 // {
-//     char test[] = "||||hello||||my||||name|||||is||||karim|||||";
+//     char test[] = "|||gdf gfdg  dfg df||";
 //     char **split;
-//     int i;
-
-//     i = 0;
-//     split = ft_split(test, '|');
-//     while (split[i])
-//     {
-//         printf("%s\n",split[i]);
-//         i++;
-//     }
+//     // // // int i;
+//     // // // i = 0;
+//     // // // split = ft_split("", 0);
+// 	// // // printf("%s", split[0]);
+// 	// printf("%d", word_count(test, '|'));
+//     // // // while (split[i])
+//     // // // {
+//     // // //     printf("%s\n",split[i]);
+//     // // //     i++;
+//     // // // }
 // }

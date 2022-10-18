@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:37:30 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 22:48:37 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:23:53 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *str, int c)
 	int	len;
 
 	len = ft_strlen(str);
-	while (str[len] != c)
+	while (str[len] != (char)c)
 	{
 		if (len == 0)
 			return (0);

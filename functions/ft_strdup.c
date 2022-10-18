@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:22:43 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 19:50:20 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:36:08 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 char	*ft_strdup(const char *s)
 {
 	char	*p;
-	int	i;
+	int		i;
+
 	p = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (p == NULL)
 		return (0);

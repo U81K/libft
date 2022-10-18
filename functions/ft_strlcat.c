@@ -6,12 +6,11 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:34:29 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 14:38:44 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:38:09 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -37,7 +36,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 // {
 // 	char *src = 0;
 // 	char *dst = 0;
-	
 // 	// strlcat(0, 0, 10);
 // 	ft_strlcat(dst, src, 10);
 // 	puts(dst);

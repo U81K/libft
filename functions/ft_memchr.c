@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:35:42 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/04 15:46:28 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:30:49 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
-	char *p;
+	char	*p;
 
 	p = (char *)s;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:31:26 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/05 13:22:57 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/14 22:25:01 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 
 	i = 0;
 	if (dstsize == 0)
-	return (ft_strlen(src));
+		return (ft_strlen(src));
 	while (src[i] && i < dstsize - 1)
 	{
 		dst[i] = src[i];

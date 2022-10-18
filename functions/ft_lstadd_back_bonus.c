@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 15:23:14 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 18:37:04 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/12 16:54:07 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/17 12:26:01 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*last;
 
-	i = 0;
-	while ((char)str[i] != (char)c)
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		if ((char)str[i] == '\0')
-			return (0);
-		i++;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	return ((char *)&str[i]);
 }
+
+// int main(void)
+// {
+// 	t_list *no1;
+// 		no1 = ft_lstnew("Hello");
+// 	t_list *new;
+// 		new = ft_lstnew("test");
+// 	ft_lstadd_back(&no1, new);
+// 	while (no1)
+// 	{
+// 		printf("%s\n", no1->content);
+// 		no1 = no1->next;
+// 	}
+// }
