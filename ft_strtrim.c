@@ -6,13 +6,13 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:04:18 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/11 12:53:42 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:25:10 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	str_checker(const char *set, const char str)
+static int	str_checker(const char *set, const char str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	str_checker(const char *set, const char str)
 	return (0);
 }
 
-int	index_ss(char const *str, char const *set)
+static int	index_ss(char const *str, char const *set)
 {
 	int	index_s;
 
@@ -36,7 +36,7 @@ int	index_ss(char const *str, char const *set)
 	return (index_s);
 }
 
-int	index_ff(char const *str, char const *set)
+static int	index_ff(char const *str, char const *set)
 {
 	int	index_f;
 
@@ -71,15 +71,3 @@ char	*ft_strtrim(char const *str, char const *set)
 	res[i] = '\0';
 	return (res);
 }
-
-// int    main(void)
-// {
-//     // char str[] = {"   xxx   xxx", " x"};
-//     // char set[] = {" \t"};
-
-// 	// ft_strtrim(str, set);
-//     // puts(ft_strtrim(str, set));
-//     puts(ft_strtrim("   xxx   xxx", " x"));
-//     // puts(strtrim("   xxx   xxx", " x"));
-//     // puts(strdup(""));
-// }

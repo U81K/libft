@@ -6,13 +6,13 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:52:00 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 19:35:57 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:24:24 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char *s, char c)
+static int	word_count(char *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	word_count(char *s, char c)
 	return (count);
 }
 
-char	*str_count(char *str, char c)
+static char	*str_count(char *str, char c)
 {
 	int			i;
 	int			str_count;
@@ -85,20 +85,3 @@ char	**ft_split(char const *s, char c)
 	res[j] = 0;
 	return (res);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-//     char test[] = "|||gdf gfdg  dfg df||";
-//     char **split;
-//     // // // int i;
-//     // // // i = 0;
-//     // // // split = ft_split("", 0);
-// 	// // // printf("%s", split[0]);
-// 	// printf("%d", word_count(test, '|'));
-//     // // // while (split[i])
-//     // // // {
-//     // // //     printf("%s\n",split[i]);
-//     // // //     i++;
-//     // // // }
-// }

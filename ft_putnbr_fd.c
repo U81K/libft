@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 19:35:42 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 12:30:49 by bgannoun         ###   ########.fr       */
+/*   Created: 2022/10/11 17:40:47 by bgannoun          #+#    #+#             */
+/*   Updated: 2022/10/19 01:39:23 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*p;
-
-	p = (char *)s;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		if (p[i] == (char)c)
-		{
-			return ((char *)s + i);
-		}
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (0);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = n * -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
+	else
+	{
+		n = n + 48;
+		write(fd, &n, 1);
+	}
 }
 
-// int	main(void)
+// int main(void)
 // {
-// 	char s[] = {0, 1, 2 ,3 ,4 ,5};
-// 	puts(ft_memchr(s, 2, 3));
-// 	puts(memchr(s, 2, 3));
+// 	int fd;
+// 	fd = open("test", O_CREAT | O_WRONLY,777);
+// 	ft_putnbr_fd(23749, fd);
+// 	close(fd);
 // }

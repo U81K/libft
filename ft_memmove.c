@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:04:03 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/19 00:29:01 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:24:07 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-// int	main(void)
-// {
-// 	char src[20] = {"geeksfor"};
-// 	char dest[20] = {"hello"};
-// 	memmove(src + 2, src, 4);
-// 	// ft_memmove(src + 2, src, 4);
-// 	puts(dest);
-// }

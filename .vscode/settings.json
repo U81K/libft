@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"libft.h": "c",
-		"sstream": "c",
-		"bitset": "c",
-		"chrono": "c"
-	}
-}

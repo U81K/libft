@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:11:05 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 20:07:18 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:25:15 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	res[i] = '\0';
 	return (res);
 }
-
-// int main(void)
-// {
-// 	printf("%s", ft_substr("hola", 5, 4));
-// 	// puts(ft_substr("", 0, 1));
-// }

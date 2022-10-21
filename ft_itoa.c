@@ -6,13 +6,13 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:12:17 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 16:35:08 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:37:18 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	int_count(int n)
+static int	int_count(int n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	int_count(int n)
 	return (i);
 }
 
-char	*return_v(int n)
+static char	*return_v(int n)
 {
 	if (n == 0)
 		return (ft_strdup("0"));
@@ -62,14 +62,3 @@ char	*ft_itoa(int n)
 	res[int_l] = '\0';
 	return (res);
 }
-
-// int	main(void)
-// {
-// 	// char str[] = {"hello"};
-// 	// puts(str);
-// 	// puts(str);
-// 	// ft_itoa(10);
-// 	// puts(ft_itoa(-0));
-// 	printf("%d", int_count( -222 ));
-// 	// printf("%d", int_count(10));
-// }

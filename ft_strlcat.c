@@ -6,7 +6,7 @@
 /*   By: bgannoun <bgannoun@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 12:34:29 by bgannoun          #+#    #+#             */
-/*   Updated: 2022/10/17 12:38:09 by bgannoun         ###   ########.fr       */
+/*   Updated: 2022/10/19 21:24:43 by bgannoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[ld + i] = '\0';
 	return (ld + ls);
 }
-
-// int	main(void)
-// {
-// 	char *src = 0;
-// 	char *dst = 0;
-// 	// strlcat(0, 0, 10);
-// 	ft_strlcat(dst, src, 10);
-// 	puts(dst);
-// 	// printf("%zu\n", strlcat(dst, src, 4));
-// 	// printf("%zu", ft_strlcat(dst, src, 4));
-// }
